@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MicroHabits Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 text-white min-h-screen flex flex-col items-center px-4 py-10">
+
+  <h1 class="text-2xl font-semibold mb-6">MicroHabits Tracker</h1>
+
+  <div class="w-full max-w-md grid grid-cols-3 gap-3">
+    <!-- Hours 0–23 -->
+  </div>
+
+  <script>
+    const habits = [
+      "Hydrate", "Stretch", "Breath", "Posture", "Smile", "Pause",
+      "Reflect", "Blink", "Focus", "Relax", "Walk", "Look Away",
+      "Note", "Check-in", "Stand", "Microtask", "Unplug", "Declutter",
+      "Gratitude", "Sunlight", "Silence", "Wind Down", "Intent", "Move"
+    ];
+
+    const container = document.querySelector('div.grid');
+
+    for (let i = 0; i < 24; i++) {
+      const box = document.createElement('div');
+      box.className = "p-4 bg-zinc-800 rounded-lg text-center cursor-pointer hover:bg-zinc-700 transition";
+      box.innerHTML = `<div class="text-sm text-gray-400">${i}:00</div><div class="text-base font-medium mt-1">${habits[i]}</div>`;
+      
+      box.addEventListener('click', () => {
+        box.classList.toggle('bg-green-600');
+      });
+
+      container.appendChild(box);
+    }
+  </script>
+
+</body>
+</html>
